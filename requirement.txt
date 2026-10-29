@@ -5,5 +5,5 @@ torch==2.6.0
 torchvision==0.21.0
 grad-cam
 pillow
-numpy
+numpy<2
 opencv-python-headless
