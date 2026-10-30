@@ -522,7 +522,7 @@ if uploaded_file is not None:
         st.image(
             image,
             caption="Uploaded chest X-ray",
-            use_container_width=True
+            width="stretch"
         )
 
     with action_col:
@@ -541,7 +541,7 @@ if uploaded_file is not None:
 
         analyze_button = st.button(
             "🔍 Analyze X-Ray",
-            use_container_width=True
+            width="stretch"
         )
 
         if analyze_button:
@@ -571,8 +571,10 @@ if uploaded_file is not None:
                         "confidence": confidence,
                         "probabilities": probabilities,
                         "gradcam": gradcam_image,
-                        "filename": uploaded_file.name
+                        "filename": uploaded_file.name,
+                        "original_image": image.copy()
                     }
+
 
                     st.success("Analysis completed successfully!")
 
@@ -598,6 +600,8 @@ if st.session_state.get("analysis_result") is not None:
     confidence = result["confidence"]
     probabilities = result["probabilities"]
     gradcam_image = result["gradcam"]
+    original_image = result["original_image"]
+
 
     st.markdown("---")
 
@@ -709,17 +713,18 @@ if st.session_state.get("analysis_result") is not None:
         st.markdown("#### Original X-Ray")
 
         st.image(
-            image,
-            use_container_width=True
+            original_image,
+            width="stretch"
         )
 
+        
     with cam_col2:
 
         st.markdown("#### Grad-CAM Heatmap")
 
         st.image(
             gradcam_image,
-            use_container_width=True
+            width="stretch"
         )
 
     st.info(
@@ -762,7 +767,7 @@ replace professional clinical assessment.
         data=report,
         file_name="pulmoai_analysis_report.txt",
         mime="text/plain",
-        use_container_width=True
+        width="stretch"
     )
 
 
