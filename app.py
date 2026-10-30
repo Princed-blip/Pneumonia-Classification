@@ -772,24 +772,57 @@ replace professional clinical assessment.
 
 
 # =========================================================
-# DISCLAIMER
+# MEDICAL DISCLAIMER
 # =========================================================
 
 st.markdown("---")
 
-st.warning(
-    """
-    **Medical Disclaimer**
+st.html("""
+<div style="
+    background: #fff1ed;
+    border: 1px solid #ffc9ba;
+    border-left: 6px solid #e66b50;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 25px 0;
+">
 
-    PulmoAI is an academic research prototype and is not intended
-    for clinical diagnosis or treatment decisions. Its predictions
-    should not replace assessment by a qualified healthcare professional.
+    <div style="
+        color: #b9472e;
+        font-size: 19px;
+        font-weight: 800;
+        margin-bottom: 14px;
+    ">
+        ⚠️ Medical Disclaimer
+    </div>
 
-    The model was trained using paediatric chest X-ray images
-    from a single hospital. Its performance has not been established
-    for adults or for images from other hospitals, scanners, or populations.
-    """
-)
+    <p style="
+        color: #75483e;
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 14px;
+    ">
+        PulmoAI is an academic research prototype and is not
+        intended for clinical diagnosis or treatment decisions.
+        Its predictions should not replace assessment by a
+        qualified healthcare professional.
+    </p>
+
+    <p style="
+        color: #75483e;
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 0;
+    ">
+        The model was trained using paediatric chest X-ray images
+        from a single hospital. Its performance has not been
+        established for adults or for images from other hospitals,
+        scanners, or populations.
+    </p>
+
+</div>
+""")
+
 
 # =========================================================
 # FOOTER
